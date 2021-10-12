@@ -80,7 +80,11 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
+
+bundle.js
+bundle.js.LICENSE.txt
+config
 
 # Gatsby files
 .cache/

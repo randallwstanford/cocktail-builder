@@ -1,0 +1,36 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server",
+    "build": "webpack --watch --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randallwstanford/MVP.git"
+  },
+  "author": "Randall Stanford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randallwstanford/MVP/issues"
+  },
+  "homepage": "https://github.com/randallwstanford/MVP#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "eslint": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  },
+  "dependencies": {
+    "axios": "^0.23.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
