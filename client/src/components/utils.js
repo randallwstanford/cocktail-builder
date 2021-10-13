@@ -7,7 +7,6 @@ exports.shuffleArray = (arr) => {
 }
 
 exports.checkForNaughtyWords = (cocktails) => {
-  console.log('checing for naughty words in utils')
   if (cocktails.length > 0) {
     return cocktails.filter(cocktail => {
       if (
