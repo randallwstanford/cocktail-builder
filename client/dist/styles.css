@@ -2,9 +2,23 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #E1FAF9;
+}
+
 .container {
   margin-top: 25px;
   text-align: center;
+}
+
+.title {
+  font-size: 35px;
+  position: relative;
+  font-weight: bold;
+  left: 350px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+  width: 1000px;
 }
 
 .cocktails {
@@ -21,7 +35,6 @@
   width: 800px;
   height: 974px;
   display: inline-block;
-  padding: 1rem 1rem;
   vertical-align: middle;
 }
 
@@ -34,11 +47,14 @@
   display: block;
   margin: 20px;
   height: 50px;
+  background-color: #7C9082;
+  box-shadow: 5px 5px 5px;
   width: 200px;
   font-size: 18px;
 }
 
 .addIngredient {
+
   height: 50px;
   text-align: center;
   font-size: 14px;
@@ -60,7 +76,7 @@
   font-weight: bold;
 }
 
-.test {
+.cocktail-wrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
