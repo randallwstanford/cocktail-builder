@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../components/Input.jsx';
+import IngredientsAndCocktails from '../components/IngredientsAndCocktails.jsx';
 
 export default function App() {
   return (
