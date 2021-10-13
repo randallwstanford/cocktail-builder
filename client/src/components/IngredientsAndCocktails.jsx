@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { shuffleArray, checkForNaughtyWords, setMaxCocktails } from './utils.js';
+import React, { useState, useEffect } from 'react';
+import Saved from './Saved.jsx';
+import axios from 'axios';
 
 export default function IngredientsAndCocktails() {
+
   const [ingredients, setIngredients] = useState([]);
   const [cocktails, setCocktails] = useState([]);
 
@@ -32,6 +34,13 @@ export default function IngredientsAndCocktails() {
     }
   };
 
+  const saveDrink = (event) => {
+    var drinkName = event.target.parentNode.childNodes[0].innerText;
+    var drinkUrl = event.target.parentNode.childNodes[1].getAttribute('src');
+    localStorage.setItem(drinkName, drinkUrl)
+
+  }
+
   useEffect(() => {
     getCocktails();
   }, [ingredients])
@@ -46,10 +55,10 @@ export default function IngredientsAndCocktails() {
               ? <div>No Cocktails</div> :
               <div>
                 <h3>Found {setMaxCocktails(cocktails.length)} cocktails:</h3>
-                <div className="test">
+                <div className="cocktail-wrap">
                 {cocktails.slice(0, setMaxCocktails(cocktails.length)).map((cocktail) => {
                   return (
-                    <div className="renderedCocktail">
+                    <div className="renderedCocktail" onClick={saveDrink}>
                       <div className="cocktail">{cocktail.strDrink}</div>
                       <img src={cocktail.strDrinkThumb} width="125px"/>
                     </div>
@@ -72,6 +81,7 @@ export default function IngredientsAndCocktails() {
         </form>
         <div> {ingredients.map((ingredient) => { return (<h3 className="ingredient">{ingredient}</h3>) })} </div>
       </div>
+      <Saved />
     </div>
   )
 };
