@@ -1,5 +1,6 @@
-import { shuffleArray, checkForNaughtyWords, setMaxCocktails } from './utils.js';
+import { shuffleArray, checkForNaughtyWords } from './utils.js';
 import React, { useState, useEffect } from 'react';
+import Cocktails from './Cocktails.jsx';
 import Saved from './Saved.jsx';
 import axios from 'axios';
 
@@ -34,11 +35,12 @@ export default function IngredientsAndCocktails() {
     }
   };
 
-  const saveDrink = (event) => {
-    var drinkName = event.target.parentNode.childNodes[0].innerText;
-    var drinkUrl = event.target.parentNode.childNodes[1].getAttribute('src');
-    localStorage.setItem(drinkName, drinkUrl)
-
+  const deleteIngredient = (event) => {
+    var updatedIngredients = ingredients.filter((ing) => {
+      if (ing !== event.target.innerText) return ing;
+    })
+    if (updatedIngredients.length === 0) setCocktails([])
+    setIngredients(updatedIngredients);
   }
 
   useEffect(() => {
@@ -47,29 +49,8 @@ export default function IngredientsAndCocktails() {
 
   return (
     <div>
-      <div className="cocktails">
-        <div>
-        <h2>Cocktails!</h2>
-          <div className="allCocktails">
-            {(cocktails === "None Found")
-              ? <div>No Cocktails</div> :
-              <div>
-                <h3>Found {setMaxCocktails(cocktails.length)} cocktails:</h3>
-                <div className="cocktail-wrap">
-                {cocktails.slice(0, setMaxCocktails(cocktails.length)).map((cocktail) => {
-                  return (
-                    <div className="renderedCocktail" onClick={saveDrink}>
-                      <div className="cocktail">{cocktail.strDrink}</div>
-                      <img src={cocktail.strDrinkThumb} width="125px"/>
-                    </div>
-                  )
-                })}
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      </div>
+      <Cocktails cocktails={cocktails}/>
+      <Saved />
       <div className="ingredients">
         <h2>Ingredients!</h2>
         <form onSubmit={addIngredient}>
@@ -79,9 +60,8 @@ export default function IngredientsAndCocktails() {
           </div>
           <input className="addIngredient" type="text" placeholder="add ingredients here!" name="ingredient"></input>
         </form>
-        <div> {ingredients.map((ingredient) => { return (<h3 className="ingredient">{ingredient}</h3>) })} </div>
+        <div> {ingredients.map((ingredient) => { return (<div className="ingredient" onClick={deleteIngredient}>{ingredient}</div>) })} </div>
       </div>
-      <Saved />
     </div>
   )
 };

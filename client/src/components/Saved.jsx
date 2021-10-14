@@ -15,8 +15,8 @@ export default function Saved() {
 
   return (
     <div>
+      <div className="saved-container">
       <h3>Saved Cocktails:</h3>
-      <div>
       {savedDrinks.slice(0, savedDrinks.length - 6).map(drink => {
         return (
           <div className="saved-drinks" onClick={removeDrink}>
