@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -24,23 +25,33 @@ body {
 .cocktails {
   border: 2px solid black;
   width: 800px;
+  margin: 0 auto;
   height: 974px;
   display: inline-block;
-  margin-right: 40px;
   vertical-align: middle;
+  margin-left: 250px;
+  margin-right: 50px;
+  float:left;
 }
 
 .ingredients {
   border: 1px solid black;
-  width: 800px;
+  width: 30%;
   height: 974px;
   display: inline-block;
   vertical-align: middle;
 }
 
+.ingredient:hover {
+  cursor: pointer;
+  text-decoration: line-through
+}
+
 .ingredient {
   width: 100px;
+  font-weight: bold;
   margin: 0 auto;
+  margin-bottom: 35px;
 }
 
 .ingredient-button {
@@ -54,7 +65,6 @@ body {
 }
 
 .addIngredient {
-
   height: 50px;
   text-align: center;
   font-size: 14px;
@@ -66,15 +76,38 @@ body {
   justify-content: center;
 }
 
+.ingredient-button:hover {
+  cursor: pointer;
+}
+
 .renderedCocktail {
-  width: 150px;
+  width: 165px;
   height: 150px;
   margin: 10px;
+}
+.renderedCocktail:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px;
 }
 
 .cocktail {
   font-weight: bold;
 }
+
+.cocktail:hover, img:hover {
+  cursor: pointer;
+}
+
+img:hover {
+  box-shadow: 5px 5px 20px;
+}
+
+.saved-container {
+  width: 10%;
+  float:left;
+  margin-right: -500px;
+}
+
 
 .cocktail-wrap {
   display: flex;
