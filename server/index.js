@@ -3,7 +3,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const port = 3001;
-const url = 'https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i='
+const key = require('../config/config');
+const url = `https://www.thecocktaildb.com/api/json/v2/${key}/filter.php?i=`;
 
 app.use(express.static(path.join(__dirname, '../', 'client', 'dist')))
 
