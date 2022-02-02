@@ -17,7 +17,7 @@ Simply put in your ingredients in the input field and the page will start showin
 
 ## Setup
   - Acquire an API key from the [CocktailDB](https://www.thecocktaildb.com/) API. ($2/m). 
-  - Rename config_copy.js to config.js and replace the string with you new API key. `const token = 'xxxxxxx';`
+  - Rename apiKey.example.js to apiKey.js and replace the string with you new API key. `const token = 'xxxxxxx';`
   - Run the following: 
   ``` 
   $ cd ./cocktail-builer
