@@ -1,14 +1,31 @@
 # Cocktail Builder 🍸🍹
 
-## Cocktail Builder is a single page web app designed to show you a list of cocktails you can build with the engredients you have on hand.
+![Screen Shot 2022-02-02 at 4 04 17 PM](https://user-images.githubusercontent.com/83252804/152252511-225f13a4-de3d-4d43-8dcb-6ca5b263cd0c.png)
 
-#### This web app uses the [CocktailDB](https://www.thecocktaildb.com/) API!
+## About
 
-#### Simply put in your ingredients in the input field and the page will start showing you results. The more ingredients, the more filtered your search is. 
+Cocktail Builder is a single page web app designed to show you a list of cocktails you can build with the engredients you have on hand.
+This web app uses the [CocktailDB](https://www.thecocktaildb.com/) API.
 
-#### Inside the config_copy.js file, edit your API key provided after becoming a Patreon member ($2/m).
-#### `const token = 'xxxxxxx';`
+Simply put in your ingredients in the input field and the page will start showing you results. The more ingredients, the more filtered your search is. 
 
-#### Run `npm run server` and `npm run build` in the terminal on two different processes.
+## Technologies
+  - React
+  - Express.js
+  - CocktailDB
+  - ESLint
 
-<img width="1202" alt="Screen Shot 2021-10-23 at 11 59 19 AM" src="https://user-images.githubusercontent.com/83252804/138566931-80b8c442-3cc7-4ac1-8ee0-0b4424aa7d54.png">
+## Setup
+  - Acquire an API key from the [CocktailDB](https://www.thecocktaildb.com/) API. ($2/m). 
+  - Rename config_copy.js to config.js and replace the string with you new API key. `const token = 'xxxxxxx';`
+  - Run the following: 
+  ``` 
+  $ cd ./cocktail-builer
+  $ npm install
+  $ npm run server
+  ```
+  - Open new terminal window then run: 
+  ```
+  $ cd ./cocktail-builer 
+  $ npm run build
+  ```
