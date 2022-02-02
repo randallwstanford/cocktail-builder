@@ -1,14 +1,47 @@
-import React from 'react';
-import Ingredients from '../components/Ingredients.jsx';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { shuffleArray, checkForNaughtyWords } from './utils';
+
+// Components
+import Cocktails from './Cocktails.jsx';
+import Saved from './Saved.jsx';
+import Ingredients from './Ingredients.jsx';
+import Header from './Header.jsx';
 
 export default function App() {
+  const [ingredients, setIngredients] = useState([]);
+  const [cocktails, setCocktails] = useState([]);
+
+  const getCocktails = () => {
+    let parameters = ingredients[0];
+
+    if (ingredients.length > 0) parameters = ingredients.join(',');
+
+    axios.get('/drinks', { params: { ingredient: parameters } })
+      .then(({ data }) => {
+        if (typeof data.drinks !== 'string') {
+          setCocktails(shuffleArray(checkForNaughtyWords(data.drinks)));
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getCocktails();
+  }, [ingredients]);
+
   return (
     <div className="container">
-      <div className="title">What cocktails can I make with my current ingredients?</div>
-      <h2>Try: Sugar, Orange, Lime, Vodka, Gin, Pineapple Juice, Cherry, Olive</h2>
-      <h2>Angostura bitters, Coca-Cola, Lemon Peel, Dry Vermouth, Ice, and more...</h2>
-      <Ingredients />
+      <Header />
+      <div className="toJustify">
+        <Cocktails cocktails={cocktails} />
+        <Ingredients
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+          setCocktails={setCocktails}
+        />
+        <Saved />
+      </div>
     </div>
-  )
-};
-
+  );
+}

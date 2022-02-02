@@ -4,22 +4,21 @@ exports.shuffleArray = (arr) => {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
-}
+};
 
 exports.checkForNaughtyWords = (cocktails) => {
   if (cocktails.length > 0) {
-    return cocktails.filter(cocktail => {
-      if (
-        cocktail.strDrink === 'Pornstar Martini' ||
-        cocktail.strDrink === '69 Special' ||
-        cocktail.strDrink === 'Screaming Orgasm') {
-        return;
-      } else { return cocktail; }
-    })
+    return cocktails.filter((cocktail) => {
+      if (cocktail.strDrink !== 'Pornstar Martini'
+        || cocktail.strDrink !== '69 Special'
+        || cocktail.strDrink !== 'Screaming Orgasm') {
+        return cocktail;
+      }
+    });
   }
-}
+};
 
 exports.setMaxCocktails = (lengthToTest) => {
   if (lengthToTest > 20) { return 20; }
-  return lengthToTest
+  return lengthToTest;
 };
